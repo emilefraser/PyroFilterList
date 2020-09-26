@@ -1,3 +1,15 @@
 [submodule "Filterlist-for-AdGuard"]
 	path = Filterlist-for-AdGuard
 	url = https://github.com/hl2guide/Filterlist-for-AdGuard
+[submodule "uAssets"]
+	path = uAssets
+	url = https://github.com/uBlockOrigin/uAssets
+[submodule "Hello-Goodbye"]
+	path = Hello-Goodbye
+	url = https://github.com/bcye/Hello-Goodbye
+[submodule "adblock-nocoin-list"]
+	path = adblock-nocoin-list
+	url = https://github.com/hoshsadiq/adblock-nocoin-list
+[submodule "easylist"]
+	path = easylist
+	url = https://github.com/easylist/easylist

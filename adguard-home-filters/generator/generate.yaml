@@ -1,0 +1,24 @@
+local_paths:
+  includes: /home/pi/adguard-home-filters/repo/generator/includes/
+  output: /home/pi/adguard-home-filters/repo/
+file_include:
+  header: tm_header.txt
+  filter_whitelist: fl_whitelist.txt
+file_output:
+  filters:
+    name: filters.txt
+    desc: Filter list generated from various sources with basic domain blocking / exception rules for use with AdGuard Home.
+  regex:
+    name: regex.txt
+    desc: Regular expressions generated from various sources for advanced filtering for use with AdGuard Home.
+remote_files:
+  hosts:
+    - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+    - https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
+  regex:
+    - https://raw.githubusercontent.com/mmotti/pihole-regex/master/regex.list
+  filters:
+    - https://raw.githubusercontent.com/mmotti/adguard-home-filters/master/whitelist.txt
+    - https://easylist.to/easylist/easylist.txt
+    - https://easylist.to/easylist/easyprivacy.txt
+    - https://filters.adtidy.org/extension/chromium/filters/15.txt

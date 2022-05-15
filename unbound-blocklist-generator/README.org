@@ -1,0 +1,50 @@
+#+TITLE: Unbound blocklist generator
+
+This is a small Python program that takes a bunch of hostlists and generates an
+output that can be included in an unbound configuration to block those hosts.
+
+* What it does
+
+Several blocklists are merged together. Duplicates are removed. Subdomains of
+blocked domains are removed (unbound can block all subdomains of a
+domain).
+
+Finally, domains that are in the whitelist(s) are removed from the blocklist.
+
+* Usage
+
+#+begin_src sh
+git clone https://github.com/StevenBlack/hosts
+python3 hosts.py \
+    -b hosts/hosts \
+    -b hosts/alternates/gambling/hosts \
+    -b hosts/alternates/social/hosts \
+    -w my-whitelist \
+    > unbound.blocklist.cfg
+#+end_src
+
+* Requirement
+
+- Python 3
+
+* Blocklists
+
+Input files can contain entries in the style of =/etc/hosts=: an ip address
+followed by a host name, or can be just hostnames separated by newlines.
+
+Lines starting with a =#= are ignored, and so is the text following a =#= sign
+on lines that do contain data.
+
+#+begin_src
+# this is a comment
+0.0.0.0 nasty.ad.domain.com
+
+# ip address is ignored and can be anything
+2001:: insta.com
+
+facebook.com # comments can be after the host
+#+end_src
+
+* Inspiration
+
+https://github.com/oznu/dns-zone-blacklist
